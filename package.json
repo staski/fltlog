@@ -1,0 +1,24 @@
+{
+  "name": "fltlog",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.11.3",
+    "jquery": "^3.7.1",
+    "vue": "^3.4.29",
+    "vue-axios": "^3.5.2",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "vite": "^5.3.1"
+  }
+}
