@@ -76,7 +76,6 @@ function spreadsheetNumber(num){
 
 function timestringToSeconds( timestring ){
     const [hours, minutes]= timestring.split(":");
-    console.log(timestring + " -> " + hours * 3600 + minutes + " [" + hours +"," + minutes +"]")
     return hours * 3600 + minutes * 60;
 }
 

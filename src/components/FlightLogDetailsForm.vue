@@ -87,7 +87,7 @@
 </style>
 
 <script setup>
-import { watch, ref, reactive, computed, defineEmits } from 'vue';
+import { watch, ref, reactive, computed } from 'vue';
 import FlUtils from '../flutils.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css'

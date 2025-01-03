@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap'
 
-import { ref, reactive, onMounted, computed } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import FlightLogTable from './components/FlightLogTable.vue'
 import FlUtils from './flutils.js'
 import FlightLogInputSelect from './components/FlightLogInputSelect.vue'
@@ -17,7 +17,6 @@ var rules = ref(localStorage.favrules ? localStorage.favrules : 'VFR');
 var pilotfunction = ref(localStorage.favfunction ? localStorage.favfunction : 'PIC');
 var plane = ref(localStorage.favplane ? localStorage.favplane : '');
 var pilot = ref(localStorage.favpilot ? localStorage.favpilot : '');
-
 
 var debug = 0
 
@@ -77,20 +76,19 @@ function deleteFlightSegment(index) {
 }
 
 
-//let base_url = import.meta.env.BASE_URL
-//let createurl = 'http://' + base_url + '/mngfltlg.cgi?action=create'
-let screateurl = 'https://' + 'localhost' + '/~staskialt/cvtfltlg/gpx2fltlog.cgi?action=create'
+let base_url = import.meta.env.PROD === true ? 'flight-log.venus-flytrap.de' : 'localhost/~staskialt/cvtfltlg'
+let screateurl = 'https://' + base_url + '/gpx2fltlog.cgi?action=create'
 
 async function handleFileUpload() {
   var files = Array.from(file.value.files)
   for (let i = 0; i < files.length; i++) {
-    await this.submitFile(files[i])
+    await submitFile(files[i])
   }
 }
 
 async function submitFile(file) {
   let formData = new FormData();
-  let acturl = this.screateurl;
+  let acturl = screateurl;
   if (debug == 1) {
     acturl = acturl + '&debug=1'
   }
@@ -115,7 +113,7 @@ async function submitFile(file) {
         }
       });
     var info = response.data
-    this.fetchNewFlights(info)
+    fetchNewFlights(info)
   } catch (error) {
     console.log(error)
   }
@@ -153,7 +151,6 @@ function fetchNewFlights(myInfo) {
     if (item.duplicate == true) {
       a.splice(item.idx, 1, item)
     } else if (item.invalid == false) {
-      console.log(item);
       a.splice(0, 0, item);
     }
     // ignore and skip otherwise
@@ -167,11 +164,11 @@ function fetchNewFlights(myInfo) {
 }
 
 function handleExportAircraftLog() {
-  FlUtils.exportExcelLog(this.aircraftlogcolumns, this.allflights)
+  FlUtils.exportExcelLog(aircraftlogcolumns, allflights)
 }
 
 function handleExportPilotLog() {
-  FlUtils.exportExcelLog(this.pilotlogcolumns, this.allflights)
+  FlUtils.exportExcelLog(pilotlogcolumns, allflights)
 }
 function getFlightTotalTime(row) {
   return FlUtils.secondsToSpreadsheetTimeXLS(row["onBlock"]) - FlUtils.secondsToSpreadsheetTimeXLS(row["offBlock"])

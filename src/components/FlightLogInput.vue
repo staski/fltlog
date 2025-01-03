@@ -24,7 +24,7 @@ const props = defineProps({
 </template>
 
 <style scoped>
-input[type="text"]text:invalid {
+input[type="text"]:invalid {
   border: 2px solid red;
 }
 </style>

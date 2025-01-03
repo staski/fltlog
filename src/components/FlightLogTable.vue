@@ -111,9 +111,9 @@ function saveFlightSegment(item, index) {
   emit('itemSave', item,index);
 }
 
-function showFlightSegmentForm(item, index) {
-  this.item = item;
-  this.index = index;
+function showFlightSegmentForm(i, idx) {
+  item = i;
+  index = idx;
   modal.value = true;
 }
 
