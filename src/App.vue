@@ -38,7 +38,7 @@ const aircraftlogcolumns = [
   { label: "Flight Distance", sub: "stats", field: "flightDistanceNM", dataCalc: FlUtils.spreadsheetNumber }
 ];
 const pilotlogcolumns = [
-  { label: "Date", field: "takeoffTime", dataCalc: FlUtils.spreadsheetTime, dataFormat: "dd\.mm\.yy" },
+  { label: "Date", field: "takeoffTime", dataCalc: FlUtils.secondsToSpreadsheetTime, dataFormat: "dd\.mm\.yy" },
   { label: "Aircraft Type", field: "" },
   { label: "Registration", field: "plane" },
   { label: "Type (SEP/MEP)", field: "SEP" },
