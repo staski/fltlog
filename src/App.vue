@@ -124,7 +124,7 @@ function fetchNewFlights(myInfo) {
 
   myInfo.forEach(function (item) {
     item.duplicate = item.invalid = false
-    
+
     // find duplicates or conflicting flights
     a.forEach(function (flight, idx) {
       flight.duplicate = false
@@ -155,7 +155,7 @@ function fetchNewFlights(myInfo) {
     }
     // ignore and skip otherwise
   });
- 
+
   a.sort((x, y) => {
     return y.offBlock - x.offBlock
   });
@@ -203,6 +203,9 @@ function getFITime(row) {
           <i class="bi-upload" aria-hidden="true"></i>
           Upload
         </button>
+        <a role="button" class="btn btn-outline-light mx-1" href="https://github.com/staski/fltlog/blob/main/README.md"
+          target="_blank"><i class="bi-question-circle"></i>
+        </a>
       </div>
     </nav>
     <div class="card  mt-3 bg-light" v-show="showUploadForm">

@@ -1,10 +1,10 @@
 # fltlog - a flight log frontend
 
-fltlog allows you to upload your flight tracks (as *.gpx files) to the [mngfltlg](mngfltlg) backend, which converts the files to log entries and returns them in JSON format. The log entries are displayed in a html table. You can select and edit individual entries and export them in excel format either as pilot log entries or as aricraft log entries.
+fltlog allows you to upload your flight tracks (as *.gpx files) to the [mngfltlg](https://github.com/staski/mngfltlg) backend, which converts the files to log entries and returns them in JSON format. The log entries are displayed as an html table. You can select and edit individual entries and export them in excel format either as pilot log entries or as aricraft log entries.
 
-In addtion to the log entries, some flight statistics are calculated and may be shown for each flight.
+In addtion to the log entries, basic flight statistics are collected, returned and can be displayed for each flight.
 
-Neither fltlog nor its associated backend store any data persistently. The gpx files are only sent to the backend for conversion to the log format.
+Neither fltlog nor its associated backend service (cgi-script [gpx2fltlog](https://github.com/staski/mngfltlg/blob/master/gpx2fltlog.pl)) stores any data. The gpx files and any data derived therof are are discarded in the backend after the log entries have been returned to the frontend.
 
 
 ## Recommended IDE Setup
